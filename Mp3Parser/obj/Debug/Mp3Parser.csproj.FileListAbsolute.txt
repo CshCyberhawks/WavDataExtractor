@@ -1,0 +1,8 @@
+C:\code\Mp3Parser\Mp3Parser\bin\Debug\Mp3Parser.exe.config
+C:\code\Mp3Parser\Mp3Parser\bin\Debug\Mp3Parser.exe
+C:\code\Mp3Parser\Mp3Parser\bin\Debug\Mp3Parser.pdb
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.AssemblyReference.cache
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.SuggestedBindingRedirects.cache
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.CoreCompileInputs.cache
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.exe
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.pdb
