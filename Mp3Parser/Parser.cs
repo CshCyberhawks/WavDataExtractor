@@ -49,10 +49,10 @@ namespace Mp3Parser
 
             List<int> audioData = new List<int>();
 
-            while (dataLength > 3)
+            while (dataLength > 1)
             {
                 audioData.Add(ReadInt16());
-                dataLength -= 4;
+                dataLength -= 2;
             }
 
             return audioData.ToArray();
