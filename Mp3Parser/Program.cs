@@ -15,7 +15,9 @@ namespace Mp3Parser
 
             int[] audioData = Parser.Parse(fileData);
 
-            File.WriteAllText("output.txt", String.Join("\n", audioData));
+            string formattedData = Formatter.Format(audioData);
+
+            File.WriteAllText("output.json", formattedData);
         }
     }
 }

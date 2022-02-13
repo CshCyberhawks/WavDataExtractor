@@ -6,3 +6,6 @@ C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.SuggestedBindingRedirects
 C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.CoreCompileInputs.cache
 C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.exe
 C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.pdb
+C:\code\Mp3Parser\Mp3Parser\bin\Debug\Newtonsoft.Json.dll
+C:\code\Mp3Parser\Mp3Parser\bin\Debug\Newtonsoft.Json.xml
+C:\code\Mp3Parser\Mp3Parser\obj\Debug\Mp3Parser.csproj.CopyComplete
