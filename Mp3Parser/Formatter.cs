@@ -9,9 +9,9 @@ namespace Mp3Parser
 {
     internal class Formatter
     {
-        public static string Format(int[] freqs)
+        public static string Format(Output data)
         {
-            return JsonConvert.SerializeObject(freqs);
+            return JsonConvert.SerializeObject(data);
         }
     }
 }

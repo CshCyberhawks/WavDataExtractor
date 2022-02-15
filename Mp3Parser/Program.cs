@@ -13,7 +13,7 @@ namespace Mp3Parser
         {
             byte[] fileData = File.ReadAllBytes("example.wav");
 
-            int[] audioData = Parser.Parse(fileData);
+            Output audioData = Parser.Parse(fileData);
 
             string formattedData = Formatter.Format(audioData);
 
