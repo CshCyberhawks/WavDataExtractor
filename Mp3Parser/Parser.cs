@@ -18,6 +18,11 @@ namespace Mp3Parser
             return buffer;
         }
 
+        private static int ReadUInt16()
+        {
+            return (int)BitConverter.ToUInt16(Read(2), 0);
+        }
+
         private static int ReadInt16()
         {
             return BitConverter.ToInt16(Read(2), 0);
@@ -48,7 +53,12 @@ namespace Mp3Parser
 
             Read(4); // Format Chunk
             int formatLength = ReadUInt32(); // Format Chunk Length (unsigned 32 bit int)
-            Read(formatLength); // Ignore the format chunk data
+            output.FormatCode = ReadUInt16();
+            output.ChannelCount = ReadUInt16();
+            output.SamplesPerSecond = ReadUInt32();
+            output.BytesPerSecond = ReadUInt32();
+            output.BytesPerSampleFrame = ReadUInt16();
+            output.BitsPerSample = ReadUInt16();
 
             Read(4); // Data Chunk
             int dataLength = ReadUInt32(); // Data Chunk Length (the length of the rest of the file)

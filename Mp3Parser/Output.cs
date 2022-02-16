@@ -13,6 +13,13 @@ namespace Mp3Parser
 
         public string AudioType;
 
+        public int FormatCode;
+        public int ChannelCount;
+        public int SamplesPerSecond;
+        public int BytesPerSecond;
+        public int BytesPerSampleFrame;
+        public int BitsPerSample;
+
         public int DateChunkSize;
         public List<int> Data = new List<int>();
 
