@@ -32,10 +32,15 @@ namespace Mp3Parser
         {
             return (int)BitConverter.ToUInt32(Read(4), 0);
         }
+        
+        private static string ReadString(int length)
+        {
+            return Encoding.UTF8.GetString(Read(length));
+        }
 
         private static string ReadName()
         {
-            return Encoding.UTF8.GetString(Read(4));
+            return ReadString(4);
         }
 
         public static Output Parse(byte[] fileData)
@@ -44,25 +49,27 @@ namespace Mp3Parser
 
             stream = new MemoryStream(fileData);
 
-            Output output = new Output();
+            Output output = new Output()
+            {
+                FileType = ReadName(), // File Type (assuming Riff)
+                FileSize = ReadUInt32(), // File Size
 
-            output.FileType = ReadName(); // File Type (assuming Riff)
-            output.FileSize = ReadUInt32(); // File Size
+                AudioType = ReadName(), // Audio File Type (assuming WAVE)
 
-            output.AudioType = ReadName(); // Audio File Type (assuming WAVE)
+                FormatChunkName = ReadName(), // Format Chunk
+                FormatChunkLength = ReadUInt32(), // Format Chunk Length (unsigned 32 bit int)
+                FormatCode = ReadUInt16(),
+                ChannelCount = ReadUInt16(),
+                SamplesPerSecond = ReadUInt32(),
+                BytesPerSecond = ReadUInt32(),
+                BytesPerSampleFrame = ReadUInt16(),
+                BitsPerSample = ReadUInt16(),
 
-            Read(4); // Format Chunk
-            int formatLength = ReadUInt32(); // Format Chunk Length (unsigned 32 bit int)
-            output.FormatCode = ReadUInt16();
-            output.ChannelCount = ReadUInt16();
-            output.SamplesPerSecond = ReadUInt32();
-            output.BytesPerSecond = ReadUInt32();
-            output.BytesPerSampleFrame = ReadUInt16();
-            output.BitsPerSample = ReadUInt16();
+                DataChunkName = ReadName(), // Data Chunk
+                DataChunkSize = ReadUInt32() // Data Chunk Length (the length of the rest of the file)
+            };
 
-            Read(4); // Data Chunk
-            int dataLength = ReadUInt32(); // Data Chunk Length (the length of the rest of the file)
-            output.DateChunkSize = dataLength;
+            int dataLength = output.DataChunkSize;
 
             while (dataLength > 1)
             {

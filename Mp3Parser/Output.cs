@@ -13,6 +13,8 @@ namespace Mp3Parser
 
         public string AudioType;
 
+        public string FormatChunkName;
+        public int FormatChunkLength;
         public int FormatCode;
         public int ChannelCount;
         public int SamplesPerSecond;
@@ -20,7 +22,8 @@ namespace Mp3Parser
         public int BytesPerSampleFrame;
         public int BitsPerSample;
 
-        public int DateChunkSize;
+        public string DataChunkName;
+        public int DataChunkSize;
         public List<int> Data = new List<int>();
 
         public Output()
