@@ -18,6 +18,8 @@ namespace Mp3Parser
             string formattedData = Formatter.Format(audioData);
 
             File.WriteAllText("output.json", formattedData);
+
+            Console.Read();
         }
     }
 }

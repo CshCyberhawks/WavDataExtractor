@@ -71,11 +71,15 @@ namespace Mp3Parser
 
             int dataLength = output.DataChunkSize;
 
+            Console.WriteLine(dataLength);
+
             while (dataLength > 1)
             {
                 output.Data.Add(ReadInt16());
                 dataLength -= 2;
             }
+
+            Console.WriteLine(output.Data.Count);
 
             return output;
         }
